@@ -1,17 +1,17 @@
 {% extends "admin/login.html" %}
-{% load i18n admin_static %}
+{% load i18n admin_static static_files %}
 
 {% block extrahead %}{{ block.super }}
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <link type="text/css" rel="stylesheet" href="jquery.hashcash.io/jquery.hashcash.io.min.css" media="all" />
-  <script src="jquery.hashcash.io/jquery.hashcash.io.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="{% static "django_hashcash/css/jquery.hashcash.io.min.css" %}" media="all" />
 {% endblock %}
 
 {% block footer %}
 {{ block.super }}
-	<script>
-	$("form input[type=submit]").hashcash({
-	  key: '{{ hashcashio_public_key }}'
-	});
-	</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static "django_hashcash/js/jquery.hashcash.io.min.js" %}"></script>
+  <script>
+    $("form input[type=submit]").hashcash({
+      key: '{{ hashcashio_public_key }}'
+    });
+  </script>
 {% endblock %}
