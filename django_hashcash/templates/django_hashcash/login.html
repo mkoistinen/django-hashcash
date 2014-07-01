@@ -1,5 +1,5 @@
 {% extends "admin/login.html" %}
-{% load i18n admin_static staticfiles %}
+{% load i18n admin_static staticfiles django_hashcash_tags %}
 
 {% block extrahead %}{{ block.super }}
   <link type="text/css" rel="stylesheet" href="{% static "django_hashcash/css/jquery.hashcash.io.min.css" %}" media="all" />
@@ -11,7 +11,7 @@
   <script src="{% static "django_hashcash/js/jquery.hashcash.io.min.js" %}"></script>
   <script>
     $("form input[type=submit]").hashcash({
-      key: '{{ hashcashio_public_key }}'
+      key: '{% hashcashio_public_key %}'
     });
   </script>
 {% endblock %}
