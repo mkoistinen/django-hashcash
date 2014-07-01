@@ -2,16 +2,59 @@
 {% load i18n admin_static staticfiles django_hashcash_tags %}
 
 {% block extrahead %}{{ block.super }}
-  <link type="text/css" rel="stylesheet" href="{% static "django_hashcash/css/jquery.hashcash.io.min.css" %}" media="all" />
+  {% comment %}
+
+  NOTE: These styles "reset" what django-admin-style does to the submit
+  button, but should also produce nice results for configurations that do not
+  include django-admin-style.
+
+  {% endcomment %}
+  <style>
+    .submit-row { text-align: right; }
+    body.login #container #content #content-main .submit-row a.hashcash-onoffswitch label {
+      display: block;
+    }
+    body.login #container #content #content-main .submit-row a.hashcash-onoffswitch input[type="checkbox"] {
+      display: none !important;
+      width: auto !important;
+    }
+    body.login #container #content #content-main .submit-row input,
+    body.login #container #content #content-main .submit-row input:visited,
+    body.login #container #content #content-main .submit-row input[type="submit"],
+    body.login #container #content #content-main .submit-row input[type="submit"]:visited {
+      margin: 0 20px; width: auto !important;
+    }
+    body.login #container #content #content-main .hashcash-onoffswitch-inner {
+      text-align: left !important;
+    }
+    body.login #container #content #content-main .submit-row input.hashcash-disabled,
+    body.login #container #content #content-main .submit-row input:visited.hashcash-disabled,
+    body.login #container #content #content-main .submit-row input[type="submit"].hashcash-disabled,
+    body.login #container #content #content-main .submit-row input[type="submit"]:visited.hashcash-disabled {
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, hsl(200, 81%, 65%)), color-stop(100%, hsl(200, 98%, 47%))) !important;
+      background-image: -webkit-linear-gradient(hsl(200, 0%, 65%),hsl(200, 0%, 47%)) !important;
+      background-image: -moz-linear-gradient(#5dbeee,#029fed) !important;
+      background-image: -o-linear-gradient(#5dbeee,#029fed) !important;
+      background-image: linear-gradient(hsl(200, 0%, 90%),hsl(200, 0%, 80%)) !important;
+      border: 1px solid hsl(200, 0%, 75%) !important;
+      border-bottom: 1px solid hsl(200, 0%, 70%) !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+      color: hsl(0, 0%, 70%) !important;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet" href="{% static "django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.css" %}" media="all" />
 {% endblock %}
 
 {% block footer %}
 {{ block.super }}
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="{% static "django_hashcash/js/jquery.hashcash.io.min.js" %}"></script>
+  <script src="{% static "django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.js" %}"></script>
   <script>
     $("form input[type=submit]").hashcash({
-      key: '{% hashcashio_public_key %}'
+      key: '{% hashcashio_public_key %}',
+      complexity: 0.01
     });
   </script>
 {% endblock %}
