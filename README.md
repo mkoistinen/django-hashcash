@@ -8,9 +8,9 @@ This is useful in that it may thwart brute force attacks on the login form.
 Installation
 ------------
 
-1. Grab the app: `pip install django-hashcash`
+### 1. Grab the app: `pip install django-hashcash`
 
-2. Update settings.py
+### 2. Update settings.py
 
 ````
 # settings.py
@@ -34,7 +34,7 @@ HASHCASHIO_PRIVATE_KEY = 'PRIVATE-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ...
 ````
 
-3. Update urls.py
+### 3. Update urls.py
 
 ````
 # urls.py
@@ -50,4 +50,4 @@ admin.site.login_form = HashCashAuthenticationForm
 ...
 ````
 
-Done!
+### Done!
