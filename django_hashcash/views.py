@@ -18,15 +18,15 @@ from .forms import HashCashAuthenticationForm
 @sensitive_post_parameters()
 @csrf_protect
 @never_cache
-def login(request, template_name='registration/login.html',
+def login(request, template_name='django_hashcash/login.html',
           redirect_field_name=REDIRECT_FIELD_NAME,
           authentication_form=HashCashAuthenticationForm,
           current_app=None, extra_context=None):
     """
     Displays the login form and handles the login action.
 
-    This is *almost* an exact duplicate of the default login view, except the
-    default form is updateed and a new context property is added.
+    This is *almost* an exact duplicate of the defaults are updated and a new
+    context property is added.
     """
     redirect_to = request.REQUEST.get(redirect_field_name, '')
 
