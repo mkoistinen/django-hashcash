@@ -27,7 +27,7 @@ class HashCashAuthenticationForm(AuthenticationForm):
         #
         # Fetch the proof of work receipt...
         #
-        private_key = settings['HASHCASHIO_PRIVATE_KEY']
+        private_key = settings.HASHCASHIO_PRIVATE_KEY
         url = 'https://hashcash.io/api/checkwork/{hashcash_id}?apikey={private_key}'.format(
             hashcash_id=hashcash_id,
             private_key=private_key

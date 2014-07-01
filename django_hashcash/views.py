@@ -52,7 +52,7 @@ def login(request, template_name='django_hashcash/login.html',
         redirect_field_name: redirect_to,
         'site': current_site,
         'site_name': current_site.name,
-        'hashcashio_public_key': settings['HASHCASHIO_PUBLIC_KEY'],
+        'hashcashio_public_key': settings.HASHCASHIO_PUBLIC_KEY,
     }
     if extra_context is not None:
         context.update(extra_context)
