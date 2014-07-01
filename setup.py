@@ -32,6 +32,8 @@ setup(
     package_data={
         "django_hashcash": [
             "templates/django_hashcash/*",
+            "static/django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.css",
+            "static/django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.js",
         ],
     },
     license='LICENSE.txt',
