@@ -1,0 +1,17 @@
+{% extends "admin/login.html" %}
+{% load i18n admin_static %}
+
+{% block extrahead %}{{ block.super }}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="jquery.hashcash.io/jquery.hashcash.io.min.css" media="all" />
+  <script src="jquery.hashcash.io/jquery.hashcash.io.min.js"></script>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+	<script>
+	$("form input[type=submit]").hashcash({
+	  key: '{{ hashcashio_public_key }}'
+	});
+	</script>
+{% endblock %}
