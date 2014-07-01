@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include django_hashcash/static *
+recursive-include django_hashcash/templates *

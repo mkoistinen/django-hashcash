@@ -4,8 +4,7 @@ from setuptools import setup, find_packages
 from django_hashcash import __version__
 
 REQUIREMENTS = [
-    # 'django-cms>=3.0.3'
-    # 'aldryn-country-segment>=0.1.0'
+    # Unknown so far...
 ]
 
 CLASSIFIERS = [
@@ -29,13 +28,6 @@ setup(
     author_email='mkoistinen@gmail.com',
     url='https://github.com/mkoistinen/django-hashcash',
     packages=find_packages(),
-    package_data={
-        "django_hashcash": [
-            "templates/django_hashcash/*",
-            "static/django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.css",
-            "static/django_hashcash/jquery.hashcash.io/jquery.hashcash.io.min.js",
-        ],
-    },
     license='LICENSE.txt',
     platforms=['OS Independent'],
     install_requires=REQUIREMENTS,
